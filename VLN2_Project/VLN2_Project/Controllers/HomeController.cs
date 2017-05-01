@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace VLN2_Project.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
