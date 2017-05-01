@@ -22,3 +22,12 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#editor
+{
+	position: absolute;
+	top: 300px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}

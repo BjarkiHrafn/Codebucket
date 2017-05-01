@@ -1,44 +1,43 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<head>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
 
-<h2>Basic File Upload</h2>
-@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <label for="file">Upload Image:</label>
-    <input type="file" name="file" id="file" /><br><br>
-    <input type="submit" value="Upload Image" />
-    <br><br>
-    @ViewBag.Message
-}
+</head>
+<body>
+    <h2>Basic File Upload</h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" /><br><br>
+        <input type="submit" value="Upload Image" />
+        <br><br>
+        @ViewBag.Message
+    }
 
-@*linkur að ace síðunni: https://ace.c9.io/#nav=embedding*@
-@*place holder kóði*@
-<title>ACE in Action</title>
-<style type="text/css" media="screen">
-	#editor {
-		position: absolute;
-		top: 300px;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
-</style>
+    @*linkur að ace síðunni: https://ace.c9.io/#nav=embedding*@
+    @*place holder kóði*@
 
 
-<div id="editor">
-	function foo(items) {
-	var x = "All this is syntax highlighted";
-	return x;
-	}
-</div>
 
-<script src="~/Ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-		editor.setTheme("ace/theme/monokai");
-		editor.getSession().setMode("ace/mode/javascript"); // hérna breytir þú hvaða mode er skoðað
-</script>
+    <div id="editor">
+        function foo(items) {
+        var x = "All this is syntax highlighted";
+        return x;
+        }
+    </div>
+
+    <script src="~/Ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
 
 
-Mappa: ACE, taka non-conflict
+        editor.getSession().setMode("ace/mode/html"); // hérna breytir þú hvaða mode er skoðað
+
+    </script>
+
+
+    Mappa: ACE, taka non-conflict
+</body>
