@@ -9,8 +9,8 @@
 <div class="form-group">
 	<label for="mode" class="control-label">Language Mode:</label>
 	<select id="mode" class="form-control">
-		<option value="ace/mode/javascript">javascript</option>
-		<option value="ace/mode/html">html</option>
+		<option value="javascript">javascript</option>
+		<option value="html">html</option>
 	</select>
 </div>
 
@@ -22,7 +22,7 @@
 </div>
 
 <script src="~/Ace/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-@*<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>*@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
 
 	//var editor = ace.edit("editor");
@@ -30,18 +30,18 @@
 	//editor.getSession().setMode("ace/mode/javascript");
 
 	var editor = ace.edit("editor");
-	var textarea = $('textarea[name="code"]').hide();
+	//var textarea = $('textarea[name="code"]').hide();
 	editor.setTheme("ace/theme/monokai");
 	editor.getSession().setMode("ace/mode/javascript");
 	editor.getSession().setValue(textarea.val());
 	editor.getSession().on('change', function () {
-		textarea.val(editor.getSession().getValue());
+		textarea.val(editor.session().getValue());
 	});
 
 	$('#mode').on('change', function () {
 		var newMode = $("mode").val();
 		alert("The text has been changed.");
-		editor.getSession.setMode("ace/mode/" + newMode)
+		editor.getSession.setMode("ace/model/" + newMode)
 	});
 
 	 // hérna breytir þú hvaða mode er skoðað
