@@ -23,7 +23,12 @@ textarea {
     max-width: 280px;
 }
 
+<<<<<<< HEAD
 #editor {
+=======
+#editor
+{
+>>>>>>> 944ffe2974dab40ae0be9e04d18f417d0cb299f1
 	position: absolute;
 	top: 300px;
 	right: 0;
