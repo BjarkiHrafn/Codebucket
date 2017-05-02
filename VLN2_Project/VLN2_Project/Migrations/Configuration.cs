@@ -8,7 +8,9 @@ using VLN2_Project.Models;
 
 namespace VLN2_Project.Migrations
 {
+    using Models.Entities;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -34,6 +36,18 @@ namespace VLN2_Project.Migrations
                 };
                 manager.Create(user, string.Format("Password{0}", i.ToString()));
             }
+            var projects = new List<Project>();
+            foreach(Project p in projects)
+            {
+                var projectInDatabase = context.Projects.Where(
+                    s => s._ownerID == p._ownerID && s._title == p._title && s.bytes == p.bytes).SingleOrDefault();
+                if(projectInDatabase == null)
+                {
+                    context.Projects.Add(p);
+                }
+                context.SaveChanges();
+            }
+            
                 //  This method will be called after migrating to the latest version.
 
                 //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
@@ -46,6 +60,6 @@ namespace VLN2_Project.Migrations
                 //      new Person { FullName = "Rowan Miller" }
                 //    );
                 //
-            }
+       }
     }
 }

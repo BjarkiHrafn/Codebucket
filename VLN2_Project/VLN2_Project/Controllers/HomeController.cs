@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using VLN2_Project.Models.Entities;
 
 namespace VLN2_Project.Controllers
 {
@@ -48,6 +50,24 @@ namespace VLN2_Project.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        
+        [HttpPost, ValidateInput(false)]
+        public ActionResult AceEditor(string id, string html, HttpPostedFileBase file)
+        {
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/App_Data"),
+                                               Path.GetFileName(file.FileName));
+                  
+                    file.SaveAs(path);
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            return View();
+            // do you stuff
         }
     }
 }
