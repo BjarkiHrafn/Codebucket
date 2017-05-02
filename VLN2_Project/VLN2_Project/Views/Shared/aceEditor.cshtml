@@ -32,28 +32,30 @@
 	var editor = ace.edit("editor");
 	//var textarea = $('textarea[name="code"]').hide();
 	editor.setTheme("ace/theme/monokai");
-	editor.getSession().setMode("ace/mode/javascript");
+	editor.getSession().setMode("ace/mode/html");
 	editor.getSession().setValue(textarea.val());
 	editor.getSession().on('change', function () {
 		textarea.val(editor.session().getValue());
 	});
 
-	$('#mode').on('change', function () {
-		var newMode = $("mode").val();
-		alert("The text has been changed.");
-		editor.getSession.setMode("ace/model/" + newMode)
+	$('#mode').change( function () {
+	   // var newMode = $("mode").val();
+	    alert("The text has been changed.");
+	    editor.session().setMode({path: "ace/model/" + newMode});
 	});
 
-	 // hérna breytir þú hvaða mode er skoðað
+    //$(document).ready(function () {
+    //	$('#mode').on('change', function () {
 
-	//	$(document).ready(function () {
-	//		$('#mode').on('change', function () {
+    //		alert("1");
+    //		var newMode = $("mode").val();
+    //		alert("2");
+    //		editor.session().setMode("ace/mode/" + newMode);
 
-	//			var e = document.getElementById("mode");
-	//			editor.getSession().setMode(e);
+    //		alert("The text has been changed.");
+    //	});
+    //});
 
-	//			alert("The text has been changed.");
-	//		});
-	//	});
+	
 </script>
 
