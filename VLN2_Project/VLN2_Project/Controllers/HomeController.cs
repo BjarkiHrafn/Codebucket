@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace VLN2_Project.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
