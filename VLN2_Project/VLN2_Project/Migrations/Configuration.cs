@@ -36,17 +36,17 @@ namespace VLN2_Project.Migrations
                 };
                 manager.Create(user, string.Format("Password{0}", i.ToString()));
             }
-            var projects = new List<Project>();
-            foreach(Project p in projects)
-            {
-                var projectInDatabase = context.Projects.Where(
-                    s => s._ownerID == p._ownerID && s._title == p._title && s.bytes == p.bytes).SingleOrDefault();
-                if(projectInDatabase == null)
-                {
-                    context.Projects.Add(p);
-                }
-                context.SaveChanges();
-            }
+            //var projects = new List<Project>();
+            //foreach(Project p in projects)
+            //{
+            //    var projectInDatabase = context.Projects.Where(
+            //        s => s._ownerID == p._ownerID && s._title == p._title && s.bytes == p.bytes).SingleOrDefault();
+            //    if(projectInDatabase == null)
+            //    {
+            //        context.Projects.Add(p);
+            //    }
+            //    context.SaveChanges();
+            //}
             
                 //  This method will be called after migrating to the latest version.
 

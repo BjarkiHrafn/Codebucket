@@ -13,6 +13,6 @@ namespace VLN2_Project.Models.Entities
         public int _ownerID { get; set; }
         List<int> _participantIDs { get; set; }
         List<ProjectFile> _files { get; set; }
-        public byte [] bytes { get; set; }
+       // public byte [] bytes { get; set; }
     }
 }
